@@ -3,18 +3,21 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.znaji</groupId>
-        <artifactId>spring-6-recipes</artifactId>
+        <artifactId>chapter-01</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-01</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>receipe-1-8</artifactId>
+    <packaging>jar</packaging>
 
-    <name>chapter-01</name>
-    <modules>
+    <name>receipe-1-8</name>
+    <url>http://maven.apache.org</url>
 
-        <module>receipe-1-3</module>
-        <module>receipe-1-8</module>
-    </modules>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
+    <dependencies>
+
+    </dependencies>
 </project>
