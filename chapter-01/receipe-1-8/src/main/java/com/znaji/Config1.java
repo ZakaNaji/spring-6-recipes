@@ -2,16 +2,12 @@ package com.znaji;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
+@Import(Config2.class)
 public class Config1 {
-
-    @Bean
-    public Cashier cashier() {
-        var path = System.getProperty("java.io.tmpdir") + "/checkout";
-        return new Cashier("checkout", path);
-    }
 
     @Bean
     public Disc dvd() {

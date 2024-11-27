@@ -6,6 +6,10 @@ import java.util.List;
 
 public class ShoppingCart {
 
+    public ShoppingCart() {
+        System.out.println("ShoppingCart instance created number: " + new java.util.Random().nextInt());
+    }
+
     private List<Product> items = new ArrayList<>();
 
     public void addItem(Product item) {

@@ -27,5 +27,7 @@ public class App
 
         final Cashier cashier = context.getBean("cashier", Cashier.class);
         cashier.checkout(cart);
+
+        context.registerShutdownHook();
     }
 }
