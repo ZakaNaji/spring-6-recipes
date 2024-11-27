@@ -1,5 +1,8 @@
 package com.znaji;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -19,6 +22,7 @@ public class Cashier {
         this.path = path;
     }
 
+    @PostConstruct
     public void openFile() throws IOException {
         System.out.println("Opening file for writing: " + filename);
         var checkoutPath = Path.of(path, filename + ".txt");
@@ -34,6 +38,7 @@ public class Cashier {
         writer.flush();
     }
 
+    @PreDestroy
     public void closeFile() throws IOException {
         System.out.println("Closing file: " + filename);
         writer.close();

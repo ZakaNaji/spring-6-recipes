@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
-@Import(Config2.class)
+@Import(Config3.class)
 public class Config1 {
 
     @Bean

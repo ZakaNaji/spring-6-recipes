@@ -20,10 +20,11 @@ public class App
         final Disc dvd = context.getBean("dvd", Disc.class);
 
         final ShoppingCart cart = context.getBean("cart", ShoppingCart.class);
+        cart.addItem(dvd);
+        cart.addItem(aa);
+        cart.addItem(aa);
         cart.addItem(aa);
         cart.addItem(aaa);
-        cart.addItem(cd);
-        cart.addItem(dvd);
 
         final Cashier cashier = context.getBean("cashier", Cashier.class);
         cashier.checkout(cart);
