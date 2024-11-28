@@ -7,6 +7,7 @@ public class Disc extends Product {
     public Disc(String name, double price, int capacity) {
         super(name, price);
         this.capacity = capacity;
+        System.out.println("Disc constructor");
     }
 
     public int getCapacity() {

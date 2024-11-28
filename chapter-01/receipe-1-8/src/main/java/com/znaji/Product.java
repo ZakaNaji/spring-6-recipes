@@ -4,7 +4,7 @@ public abstract class Product {
 
     private final String name;
 
-    private final double price;
+    private double price;
 
     private double discount;
 
@@ -19,6 +19,10 @@ public abstract class Product {
 
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String toString() {
