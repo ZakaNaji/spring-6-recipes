@@ -12,7 +12,7 @@ public class App
     {
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config2.class);
 
-        final Product cdrw = context.getBean( Product.class);
+        final Product cdrw = context.getBean("cdrw", Product.class);
         System.out.println("discounted cdrw: " + cdrw);
 
 
