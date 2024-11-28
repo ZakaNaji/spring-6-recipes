@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config1.class);
 
         final Product cdrw = context.getBean("cdrw", Product.class);
         final Product dvdrw = context.getBean("dvdrw", Product.class);
