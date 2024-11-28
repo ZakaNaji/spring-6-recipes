@@ -1,5 +1,6 @@
 package com.znaji;
 
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -33,5 +34,10 @@ public class Config1 {
     @Scope("prototype")
     public ShoppingCart cart() {
         return new ShoppingCart();
+    }
+
+    @Bean
+    public static BeanPostProcessor productCheckBeanPostProcessor() {
+        return new ProductCheckBeanPostProcessor();
     }
 }

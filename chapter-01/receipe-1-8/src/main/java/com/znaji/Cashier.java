@@ -20,6 +20,7 @@ public class Cashier {
     public Cashier(String filename, String path) {
         this.filename = filename;
         this.path = path;
+        System.out.println("Cashier created: " + filename);
     }
 
     @PostConstruct

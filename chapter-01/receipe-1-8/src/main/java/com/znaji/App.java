@@ -26,6 +26,8 @@ public class App
         cart.addItem(aa);
         cart.addItem(aaa);
 
+        System.out.println("-----------------");
+
         final Cashier cashier = context.getBean("cashier", Cashier.class);
         cashier.checkout(cart);
 
