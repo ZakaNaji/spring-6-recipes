@@ -10,10 +10,10 @@ public class App
 {
     public static void main( String[] args )
     {
-        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config2.class);
+        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
-        final Product cdrw = context.getBean("cdrw", Product.class);
-        System.out.println("discounted cdrw: " + cdrw);
+        final ProductService productService = context.getBean(ProductService.class);
+        productService.sayHello();
 
 
 
