@@ -11,7 +11,7 @@ public class UseProfilesRecipe
     public static void main( String[] args )
     {
         var context = new AnnotationConfigApplicationContext();
-        context.getEnvironment().setActiveProfiles("winter");
+        //context.getEnvironment().setActiveProfiles("winter");
         context.register(MainConfig.class);
         context.refresh();
 
