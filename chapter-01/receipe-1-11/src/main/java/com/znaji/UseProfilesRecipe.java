@@ -1,6 +1,7 @@
 package com.znaji;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.MutablePropertySources;
 
 /**
  * Hello world!
@@ -12,7 +13,9 @@ public class UseProfilesRecipe
     {
         var context = new AnnotationConfigApplicationContext();
         //context.getEnvironment().setActiveProfiles("winter");
-        context.getEnvironment().setDefaultProfiles("autumn");
+        //context.getEnvironment().setDefaultProfiles("autumn");
+        MutablePropertySources propertySources = context.getEnvironment().getPropertySources();
+        propertySources.addFirst(new CustomPropertySource());
         context.register(MainConfig.class);
         context.refresh();
 
