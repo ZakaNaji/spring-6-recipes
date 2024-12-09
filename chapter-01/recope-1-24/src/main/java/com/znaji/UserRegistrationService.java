@@ -9,7 +9,7 @@ public class UserRegistrationService implements ApplicationEventPublisherAware {
 
     public void registerUser(String username, String email) {
         // register user
-        System.out.println("User registered with username: " + username + " and email: " + email);
+        System.out.println("UserRegistrationService: registering user with username: " + username + " and email: " + email);
         // publish event
         applicationEventPublisher.publishEvent(new UserRegistrationEvent(this, username, email));
     }
