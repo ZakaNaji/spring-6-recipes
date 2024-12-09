@@ -20,4 +20,11 @@ public class ShoppingCart {
         return Collections.unmodifiableList(this.items);
     }
 
+    @Override
+    public String toString() {
+        return "ShoppingCart{" +
+                "items=" + items +
+                '}';
+    }
+
 }
