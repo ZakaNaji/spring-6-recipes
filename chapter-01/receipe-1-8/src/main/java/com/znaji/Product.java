@@ -13,6 +13,12 @@ public abstract class Product {
         this.price = price;
     }
 
+    public void applyDiscount(double discount) {
+        //discount is a percentage
+        this.discount = discount;
+        price = price - price * discount;
+    }
+
     public String getName() {
         return name;
     }
