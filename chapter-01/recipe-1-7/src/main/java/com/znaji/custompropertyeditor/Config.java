@@ -7,17 +7,25 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.CustomEditorConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ConversionServiceFactoryBean;
+import org.springframework.core.convert.ConversionService;
+
+import java.util.Set;
 
 @Configuration
 public class Config {
 
     @Bean
-    public static CustomEditorConfigurer customEditorConfigurer() {
-        CustomEditorConfigurer configurer = new CustomEditorConfigurer();
-        configurer.setPropertyEditorRegistrars(new PropertyEditorRegistrar[]{
-                registry -> registry.registerCustomEditor(Disc.class, new CustomPropertyEditor())
-        });
-        return configurer;
+    public StringToDiscConverted stringToDiscConverted() {
+        return new StringToDiscConverted();
+    }
+
+    @Bean
+    public ConversionService conversionService() {
+        ConversionServiceFactoryBean factory = new ConversionServiceFactoryBean();
+        factory.setConverters(Set.of(stringToDiscConverted()));
+        factory.afterPropertiesSet();
+        return factory.getObject();
     }
 
     @Bean
