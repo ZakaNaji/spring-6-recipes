@@ -1,10 +1,16 @@
 package com.znaji.validation;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 
+import java.util.Locale;
+
 public class NestedObjectValidationApp {
     public static void main(String[] args) {
+
+        var ctx = new AnnotationConfigApplicationContext(Config.class);
+
         // Create a new customer
         Customer customer = new Customer();
         customer.setName("John Doe");
@@ -19,7 +25,8 @@ public class NestedObjectValidationApp {
 
         if (errors.hasErrors()) {
             errors.getAllErrors().forEach(error -> {
-                System.out.println(error.getCode());
+                var message = ctx.getMessage(error, Locale.US);
+                System.out.println(message);
             });
         }
     }
