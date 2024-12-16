@@ -8,14 +8,11 @@ import java.util.Map;
 public class BeanWrapperApp {
 
     public static void main(String[] args) {
-        ConfigLoader configLoader = new ConfigLoader();
-        Employee employee = new Employee();
-        configLoader.loadProperties(employee, Map.of("name", "John Doe", "salary", 10_000.0));
-        System.out.println(employee);
+        BeanWrapper exoticTypeWrapper = new BeanWrapperImpl(new ExoticType());
+        exoticTypeWrapper.registerCustomEditor(ExoticType.class, new ExoticTypeEditor());
+        exoticTypeWrapper.setPropertyValue("name", "exotic");
 
-        Company company = new Company();
-        configLoader.loadProperties(company, Map.of("name", "ACME", "managingDirector", employee));
-        System.out.println(company);
+        System.out.println(exoticTypeWrapper.getWrappedInstance());
 
     }
 }
