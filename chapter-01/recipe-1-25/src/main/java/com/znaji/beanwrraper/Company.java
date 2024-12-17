@@ -1,8 +1,12 @@
 package com.znaji.beanwrraper;
 
+import java.util.Date;
+
 public class Company {
     private String name;
     private Employee managingDirector;
+
+    private Date dateCreated;
 
     public Company() {
     }
@@ -23,9 +27,17 @@ public class Company {
         this.name = name;
     }
 
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
     @Override
     //include the managingDirector in the toString() method
     public String toString() {
-        return "Company [name=" + name + ", managingDirector=" + managingDirector + "]";
+        return "Company [name=" + name + ", managingDirector=" + managingDirector + ", dateCreated=" + dateCreated + "]";
     }
 }
