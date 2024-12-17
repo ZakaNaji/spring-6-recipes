@@ -16,7 +16,9 @@ public class Config {
     @Bean
     public FormattingConversionService conversionService() {
         FormattingConversionServiceFactoryBean factoryBean = new FormattingConversionServiceFactoryBean();
-        factoryBean.setFormatters(Set.of(new EmployeeFormatter()));
+        //factoryBean.setFormatters(Set.of(new EmployeeFormatter(" - ")));
+        factoryBean.setFormatterRegistrars(Set.of(registry ->
+                registry.addFormatterForFieldAnnotation(new EmployeeFormatAnnotaionFactory())));
         factoryBean.afterPropertiesSet();
         return factoryBean.getObject();
     }

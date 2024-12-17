@@ -6,7 +6,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class EmployeeFormatterExample {
 
-    @Value("John Doe,100000.0")
+    @EmployeeFormat(pattern = "/")
+    @Value("John Doe/100000.0")
     private Employee employee;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
