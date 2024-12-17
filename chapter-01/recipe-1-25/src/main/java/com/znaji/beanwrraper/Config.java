@@ -16,14 +16,14 @@ public class Config {
     @Bean
     public FormattingConversionService conversionService() {
         FormattingConversionServiceFactoryBean factoryBean = new FormattingConversionServiceFactoryBean();
-        factoryBean.setFormatters(Set.of(new DateFormatter("yyyy-MM-dd")));
+        factoryBean.setFormatters(Set.of(new EmployeeFormatter()));
         factoryBean.afterPropertiesSet();
         return factoryBean.getObject();
     }
 
     @Bean
-    public DataFormatterExample dataFormatterExample() {
-        return new DataFormatterExample();
+    EmployeeFormatterExample employeeFormatterExample() {
+        return new EmployeeFormatterExample();
     }
 
 }
