@@ -14,13 +14,17 @@ import java.util.Set;
 public class Config {
 
     @Bean
-    public FormattingConversionService conversionService() {
+    public FormattingConversionService conversionService(FormattingConversionServiceFactoryBean factoryBean) {
+        return factoryBean.getObject();
+    }
+
+    @Bean
+    public FormattingConversionServiceFactoryBean conversionServiceFactoryBean() {
         FormattingConversionServiceFactoryBean factoryBean = new FormattingConversionServiceFactoryBean();
-        //factoryBean.setFormatters(Set.of(new EmployeeFormatter(" - ")));
+        factoryBean.setFormatters(Set.of(new EmployeeFormatter(" - ")));
         factoryBean.setFormatterRegistrars(Set.of(registry ->
                 registry.addFormatterForFieldAnnotation(new EmployeeFormatAnnotaionFactory())));
-        factoryBean.afterPropertiesSet();
-        return factoryBean.getObject();
+        return factoryBean;
     }
 
     @Bean
