@@ -8,6 +8,6 @@ public class JavaBeanValidationApp {
 
         var ctx = new AnnotationConfigApplicationContext(Config.class);
         var registrationService = ctx.getBean(RegistrationService.class);
-        registrationService.register(new PersonForm("John Doe", 250));
+        registrationService.register(new PersonForm("JOHN DOE", 25));
     }
 }

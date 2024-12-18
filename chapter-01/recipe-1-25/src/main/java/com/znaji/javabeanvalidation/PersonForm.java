@@ -9,6 +9,7 @@ public class PersonForm {
 
     @NotNull(message = "Name is required")
     @Size(max = 50, message = "Name must be less than 50 characters")
+    @Uppercase
     private String name;
 
     @Max(value = 150, message = "Age must be less than 150")
