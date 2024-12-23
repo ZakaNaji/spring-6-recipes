@@ -1,5 +1,6 @@
 package com.znaji.plainjdbc;
 
+import com.znaji.Utils;
 import com.znaji.Vehicle;
 import com.znaji.VehicleDao;
 
@@ -27,7 +28,7 @@ public class PlainJdbcVehicleDao implements VehicleDao {
     public void insert(Vehicle vehicle) {
         try (Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_SQL);
-            preparedStatement(preparedStatement, vehicle);
+            Utils.preparedStatement(preparedStatement, vehicle);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -40,7 +41,7 @@ public class PlainJdbcVehicleDao implements VehicleDao {
     public void update(Vehicle vehicle) {
         try (var con = dataSource.getConnection()) {
             var ps = con.prepareStatement(UPDATE_SQL);
-            preparedStatement(ps, vehicle);
+            Utils.preparedStatement(ps, vehicle);
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -88,17 +89,6 @@ public class PlainJdbcVehicleDao implements VehicleDao {
                 }
             }
             return vehicles;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void preparedStatement(PreparedStatement ps, Vehicle vehicle) {
-        try {
-            ps.setString(1, vehicle.getColor());
-            ps.setInt(2, vehicle.getWheel());
-            ps.setInt(3, vehicle.getSeat());
-            ps.setString(4, vehicle.getVehicleNo());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
