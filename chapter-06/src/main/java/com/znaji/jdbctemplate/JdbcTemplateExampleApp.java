@@ -10,7 +10,7 @@ public class JdbcTemplateExampleApp {
         var vehicleDao = ctx.getBean(VehicleDao.class);
 
         // Insert a vehicle
-        System.out.println("Inserting a vehicle...");
-        vehicleDao.insert(new Vehicle("001", "Red", 4, 4));
+        System.out.println("Update a vehicle...");
+        vehicleDao.update(new Vehicle("001", "Blue", 4, 2));
     }
 }
