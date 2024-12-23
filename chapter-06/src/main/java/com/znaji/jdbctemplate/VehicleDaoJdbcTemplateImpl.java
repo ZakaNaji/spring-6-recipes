@@ -3,6 +3,7 @@ package com.znaji.jdbctemplate;
 import com.znaji.Utils;
 import com.znaji.Vehicle;
 import com.znaji.VehicleDao;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -50,13 +51,14 @@ public class VehicleDaoJdbcTemplateImpl implements VehicleDao {
 
     @Override
     public Vehicle findByVehicleNo(String vehicleNo) {
-        // Find vehicle by vehicleNo
-        return null;
+        return jdbcTemplate.queryForObject(SELECT_ONE_SQL,
+                (rs, rowNum) -> Utils.toVehicle(rs),
+                vehicleNo);
     }
 
     @Override
     public List<Vehicle> findAll() {
-        return null;
+        return jdbcTemplate.query(SELECT_ALL_SQL, new BeanPropertyRowMapper<>(Vehicle.class));
     }
 
     @Override

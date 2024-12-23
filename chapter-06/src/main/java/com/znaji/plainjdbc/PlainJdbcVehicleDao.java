@@ -67,7 +67,7 @@ public class PlainJdbcVehicleDao implements VehicleDao {
             Vehicle vehicle = null;
             try (var rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    vehicle = toVehicle(rs);
+                    vehicle = Utils.toVehicle(rs);
                 }
             }
             return vehicle;
@@ -85,7 +85,7 @@ public class PlainJdbcVehicleDao implements VehicleDao {
             var vehicles = new java.util.ArrayList<Vehicle>();
             try (var rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    vehicles.add(toVehicle(rs));
+                    vehicles.add(Utils.toVehicle(rs));
                 }
             }
             return vehicles;
@@ -94,11 +94,4 @@ public class PlainJdbcVehicleDao implements VehicleDao {
         }
     }
 
-    private Vehicle toVehicle(ResultSet rs) {
-        try {
-            return new Vehicle(rs.getString("VEHICLE_NO"), rs.getString("COLOR"), rs.getInt("WHEEL"), rs.getInt("SEAT"));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
