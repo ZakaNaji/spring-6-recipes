@@ -1,5 +1,6 @@
 package com.znaji.jdbctemplate;
 
+import com.znaji.VehicleDao;
 import org.postgresql.Driver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,5 +28,12 @@ public class JdbcTemplateConfig {
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public VehicleDao vehicleDaoNamedJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        var vehicleDao = new VehicleNamedJdbcTemplateDao();
+        vehicleDao.setJdbcTemplate(jdbcTemplate);
+        return vehicleDao;
     }
 }
