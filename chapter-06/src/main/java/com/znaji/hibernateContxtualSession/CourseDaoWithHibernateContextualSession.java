@@ -28,17 +28,24 @@ public class CourseDaoWithHibernateContextualSession implements CourseDao {
     }
 
     @Override
+    @Transactional
     public void delete(Long courseId) {
-
+        var session = sessionFactory.getCurrentSession();
+        var course = session.get(Course.class, courseId);
+        session.remove(course);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Course findById(Long courseId) {
-        return null;
+        var session = sessionFactory.getCurrentSession();
+        return session.get(Course.class, courseId);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Course> findAll() {
-        return null;
+        var session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Course", Course.class).list();
     }
 }
