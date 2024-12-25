@@ -30,17 +30,34 @@ public class CourseHibernateDaoImpl implements CourseDao {
 
     @Override
     public void delete(Long courseId) {
+        var session = getSession();
+        try (session) {
+            session.beginTransaction();
+            var course = session.get(Course.class, courseId);
+            if (course != null) {
+                session.remove(course);
+            }
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            throw e;
+        }
 
     }
 
     @Override
     public Course findById(Long courseId) {
-        return null;
+        var session = getSession();
+        try (session) {
+            return session.find(Course.class, courseId);
+        }
     }
 
     @Override
     public List<Course> findAll() {
-        return null;
+        try (var session = getSession()) {
+            return session.createQuery("select c from Course c", Course.class).getResultList();
+        }
     }
 
     @Lookup

@@ -7,12 +7,10 @@ public class HibernateExampleApp {
         var ctx = new AnnotationConfigApplicationContext(HibernateConfig.class);
 
         var courseDao = ctx.getBean(CourseDao.class);
-        var course = new Course();
-        course.setTitle("Spring Framework");
-        course.setBeginDate(java.time.LocalDate.now());
-        course.setEndDate(java.time.LocalDate.now().plusMonths(3));
-        course.setFee(1000);
+        var course = courseDao.findById(2L);
+        System.out.println(course);
+        course.setTitle("Java for dummies");
         courseDao.store(course);
-        System.out.println("Course stored: " + course);
+        System.out.println("after update: " + courseDao.findById(2L));
     }
 }
