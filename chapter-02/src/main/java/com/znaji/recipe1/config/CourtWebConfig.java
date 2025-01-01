@@ -1,5 +1,7 @@
 package com.znaji.recipe1.config;
 
+import com.znaji.service.ReservationService;
+import com.znaji.service.impl.InMemoryReservationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,5 +19,10 @@ public class CourtWebConfig {
         viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    @Bean
+    public ReservationService reservationService() {
+        return new InMemoryReservationService();
     }
 }
