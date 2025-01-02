@@ -1,27 +1,21 @@
 package com.znaji.recipe1.config;
 
-import jakarta.servlet.ServletContainerInitializer;
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRegistration;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import java.util.Set;
+public class CourtServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-public class CourtServletInitializer implements ServletContainerInitializer {
     @Override
-    public void onStartup(Set<Class<?>> set, ServletContext servletContext) throws ServletException {
-        servletContext.log("CourtServletInitializer onStartup triggered"); // Logs to server logs
-        System.out.println("CourtServletInitializer: onStartup called"); // Logs to console
+    protected Class<?>[] getRootConfigClasses() {
+        return null;
+    }
 
-        var applicationContext = new AnnotationConfigWebApplicationContext();
-        applicationContext.register(CourtWebConfig.class);
-        var dispatcherServlet = new DispatcherServlet(applicationContext);
-        ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("court", dispatcherServlet);
-        servletRegistration.addMapping("/");
-        servletRegistration.setLoadOnStartup(1);
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[] {CourtWebConfig.class};
+    }
 
+    @Override
+    protected String[] getServletMappings() {
+        return new String[] {"/"};
     }
 }

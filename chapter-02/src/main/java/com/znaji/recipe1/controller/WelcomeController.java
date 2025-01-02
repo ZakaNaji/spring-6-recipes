@@ -11,6 +11,7 @@ public class WelcomeController {
 
     @GetMapping("/welcome")
     public String welcome(Model model) {
+        System.out.println("Hello From Welcome");
         model.addAttribute("today", LocalDate.now());
         return "welcome";
     }
