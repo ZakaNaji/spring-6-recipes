@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -33,16 +34,12 @@ public class CourtWebConfig {
     }
 
     @Bean
-    public SimpleUrlHandlerMapping welcomeMapping() {
-        SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
-        Properties mappingProperties = new Properties();
-        mappingProperties.put("/welcomeTest", "testController");
-        mapping.setMappings(mappingProperties);
-        return mapping;
+    public BeanNameUrlHandlerMapping beanNameUrlHandlerMapping() {
+        return new BeanNameUrlHandlerMapping();
     }
 
-    @Bean
-    Controller testController() {
+    @Bean("/test")
+    public Controller testController() {
         return new TestController();
     }
 
