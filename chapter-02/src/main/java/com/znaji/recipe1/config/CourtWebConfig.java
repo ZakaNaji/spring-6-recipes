@@ -6,6 +6,7 @@ import com.znaji.service.impl.InMemoryReservationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
@@ -41,6 +42,11 @@ public class CourtWebConfig {
     @Bean("/test")
     public Controller testController() {
         return new TestController();
+    }
+
+    @Bean("/file")
+    public HttpRequestHandler fileDownload() {
+        return new FileDownloadHandler();
     }
 
 }
