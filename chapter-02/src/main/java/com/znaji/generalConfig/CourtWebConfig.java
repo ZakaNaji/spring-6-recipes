@@ -1,11 +1,15 @@
-package com.znaji.recipe1.config;
+package com.znaji.generalConfig;
 
+import com.znaji.recipe1.config.FileDownloadHandler;
+import com.znaji.recipe1.config.TestController;
 import com.znaji.recipe1.controller.WelcomeController;
+import com.znaji.recipe3.Recipe3Config;
 import com.znaji.service.ReservationService;
 import com.znaji.service.impl.InMemoryReservationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping;
@@ -17,7 +21,8 @@ import java.util.Map;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = "com.znaji.recipe1")
+@Import({Recipe3Config.class})
+@ComponentScan(basePackages = "com.znaji")
 @EnableWebMvc
 public class CourtWebConfig {
 

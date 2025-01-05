@@ -1,4 +1,4 @@
-package com.znaji.recipe1.config;
+package com.znaji.generalConfig;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
