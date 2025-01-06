@@ -5,6 +5,7 @@ import com.znaji.recipe1.config.TestController;
 import com.znaji.recipe1.controller.WelcomeController;
 import com.znaji.recipe3.Recipe3Config;
 import com.znaji.recipe4.Recipe4Config;
+import com.znaji.recipe5.Recipe5Config;
 import com.znaji.service.ReservationService;
 import com.znaji.service.impl.InMemoryReservationService;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +26,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @Configuration
-@Import({Recipe3Config.class, Recipe4Config.class})
+@Import({Recipe3Config.class, Recipe4Config.class, Recipe5Config.class})
 @ComponentScan(basePackages = "com.znaji")
 @EnableWebMvc
 public class CourtWebConfig {
