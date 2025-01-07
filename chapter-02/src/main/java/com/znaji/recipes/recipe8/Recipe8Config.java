@@ -14,7 +14,7 @@ import java.util.Properties;
 public class Recipe8Config implements WebMvcConfigurer {
 
     @Override
-    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+    public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
         resolvers.add(courtHandlerExceptionResolver());
     }
 

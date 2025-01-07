@@ -30,4 +30,9 @@ public class InMemoryReservationService implements ReservationService {
                 .filter( (r) -> StringUtils.startsWithIgnoreCase(r.getCourtName(), courtName))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<String> getForbiddenQueriesList() {
+        return List.of("forbidden");
+    }
 }

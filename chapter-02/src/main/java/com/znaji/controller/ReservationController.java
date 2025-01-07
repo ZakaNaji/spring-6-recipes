@@ -1,5 +1,6 @@
 package com.znaji.controller;
 
+import com.znaji.exception.CourtNameForbiddenException;
 import com.znaji.exception.ReservationNotFoundException;
 import com.znaji.model.Reservation;
 import com.znaji.service.ReservationService;
@@ -32,6 +33,9 @@ public class ReservationController {
     public String submitForm(@RequestParam("courtName") String courtName, Model model) {
         var reservations = Collections.<Reservation>emptyList();
         if (courtName != null) {
+            if (reservationService.getForbiddenQueriesList().contains(courtName)) {
+                throw new CourtNameForbiddenException(courtName);
+            }
             reservations = reservationService.query(courtName);
         }
         if (CollectionUtils.isEmpty(reservations)) {
