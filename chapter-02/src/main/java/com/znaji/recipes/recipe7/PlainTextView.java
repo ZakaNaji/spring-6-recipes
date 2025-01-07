@@ -1,4 +1,4 @@
-package com.znaji.recipe7;
+package com.znaji.recipes.recipe7;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

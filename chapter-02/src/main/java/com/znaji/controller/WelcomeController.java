@@ -1,4 +1,4 @@
-package com.znaji.recipe1.controller;
+package com.znaji.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

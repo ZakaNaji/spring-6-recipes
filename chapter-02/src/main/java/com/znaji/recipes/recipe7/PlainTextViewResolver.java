@@ -1,4 +1,4 @@
-package com.znaji.recipe7;
+package com.znaji.recipes.recipe7;
 
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;

@@ -1,4 +1,4 @@
-package com.znaji.recipe3;
+package com.znaji.recipes.recipe3;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.znaji.recipe5;
+package com.znaji.recipes.recipe5;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

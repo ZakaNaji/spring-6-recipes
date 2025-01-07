@@ -1,4 +1,4 @@
-package com.znaji.recipe4;
+package com.znaji.recipes.recipe4;
 
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
