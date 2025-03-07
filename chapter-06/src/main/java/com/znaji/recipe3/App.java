@@ -9,6 +9,6 @@ public class App {
         var ctx = new AnnotationConfigApplicationContext(Config.class);
         var vehicleDao = ctx.getBean(VehicleDao.class);
 
-        vehicleDao.findAll().forEach(System.out::println);
+        System.out.println(vehicleDao.getColor("CAR2"));
     }
 }

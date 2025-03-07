@@ -11,6 +11,7 @@ public class JdbcTemplateVehicleDaoImpl implements VehicleDao {
     private static final String INSERT_SQL = "INSERT INTO VEHICLE (COLOR, WHEEL, SEAT,VEHICLE_NO) VALUES (?, ?, ?, ?)";
 
     private static final String SELECT_ALL_SQL = "SELECT * FROM VEHICLE";
+    public static final String SELECT_COLOR_FOR_NO = "SELECT COLOR FROM VEHICLE WHERE VEHICLE_NO=?";
     private JdbcTemplate jdbcTemplate;
 
     public JdbcTemplateVehicleDaoImpl(JdbcTemplate jdbcTemplate) {
@@ -47,5 +48,10 @@ public class JdbcTemplateVehicleDaoImpl implements VehicleDao {
         return jdbcTemplate.query(SELECT_ALL_SQL, (rs, rowNum) -> {
             return Utils.toVehicle(rs);
         });
+    }
+
+    @Override
+    public String getColor(String vehicleNo) {
+        return jdbcTemplate.queryForObject(SELECT_COLOR_FOR_NO, String.class, vehicleNo);
     }
 }
