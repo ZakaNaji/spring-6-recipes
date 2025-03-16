@@ -12,8 +12,8 @@ public class App {
         var courseDao = ctx.getBean(CourseDao.class);
 
         Course course = new Course();
-        course.setTitle("Java for dammies");
-        course.setFee(150);
+        course.setTitle("Spring Framework for dammies");
+        course.setFee(250);
         course.setBeginDate(LocalDate.now());
         course.setEndDate(LocalDate.of(2025,12,30));
         courseDao.store(course);
