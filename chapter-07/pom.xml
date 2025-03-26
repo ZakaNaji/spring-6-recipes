@@ -7,18 +7,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-06</artifactId>
+    <artifactId>chapter-07</artifactId>
     <packaging>jar</packaging>
 
-    <name>chapter-06</name>
+    <name>chapter-07</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-
-    </dependencies>
 
 </project>
